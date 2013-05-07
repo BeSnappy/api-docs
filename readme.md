@@ -2,7 +2,7 @@
 
 ## Introduction
 
-All Snappy API end-points begin with `https://app.besnappy.com/api/v1/` are use the HTTPS protocol. All requests should also pass a username and password via to authenticate via Basic Auth.
+All Snappy API end-points begin with `https://app.besnappy.com/api/v1/` and use the HTTPS protocol. All requests should also pass a username and password via to authenticate via Basic Auth.
 
 Response paylaods are typically JSON; however, a few end-points return only a simple string identifier.
 
@@ -34,6 +34,26 @@ Retrieve all of the accounts the authenticated account has access to.
 #### GET `/account/{id}/mailboxes`
 
 Retrieve all of the mailboxes attached to an account.
+
+```json
+[
+    {
+        "id": 3,
+        "account_id": 3,
+        "type": "email",
+        "address": "hello@help.besnappy.com",
+        "display": "Snappy Help",
+        "auto_responding": 0,
+        "auto_response": "",
+        "active": 1,
+        "created_at": "2012-12-05 15:24:20",
+        "updated_at": "2013-04-18 18:10:43",
+        "custom_address": null,
+        "theme": "snappy",
+        "local_part": "hello"
+    }
+]
+```
 
 #### GET `/account/{id}/staff`
 
