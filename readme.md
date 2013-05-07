@@ -4,7 +4,7 @@
 
 All Snappy API end-points begin with `https://app.besnappy.com/api/v1/` and use the HTTPS protocol. All requests should also pass a username and password via to authenticate via Basic Auth.
 
-Response paylaods are typically JSON; however, a few end-points return only a simple string identifier.
+Response payloads are typically JSON; however, a few end-points return only a simple string identifier.
 
 ## Rate Limiting
 
