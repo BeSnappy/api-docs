@@ -16,7 +16,7 @@ The current Snappy API rate limit is 200 requests per minute.
 
 Retrieve all of the accounts the authenticated account has access to.
 
-```
+```json
 [
     {
         "id": 3,
