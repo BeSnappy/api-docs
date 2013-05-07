@@ -59,6 +59,29 @@ Retrieve all of the mailboxes attached to an account.
 
 Retrieve all of the staff attached to an account.
 
+```json
+[
+    {
+        "id": 3,
+        "email": "ian@userscape.com",
+        "sms_number": null,
+        "first_name": "Ian",
+        "last_name": "Landsman",
+        "photo": null,
+        "culture": "en",
+        "notify": 1,
+        "created_at": "2012-12-05 15:24:20",
+        "updated_at": "2013-05-07 20:26:35",
+        "signature": null,
+        "tour_played": 1,
+        "timezone": "America\/New_York",
+        "notify_new": 1,
+        "news_read_at": "2013-05-07 20:26:35",
+        "username": "ian"
+    }
+]
+```
+
 #### GET `/mailbox/{id}/tickets`
 
 Retrieve all of the **waiting** tickets from a mailbox.
