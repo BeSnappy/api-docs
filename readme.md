@@ -16,6 +16,21 @@ The current Snappy API rate limit is 200 requests per minute.
 
 Retrieve all of the accounts the authenticated account has access to.
 
+```
+[
+    {
+        "id": 3,
+        "organization": "Snappy Help",
+        "domain": "help.besnappy.com",
+        "plan_id": 1,
+        "active": 1,
+        "created_at": "2012-12-05 15:24:20",
+        "updated_at": "2013-05-07 19:48:06",
+        "custom_domain": ""
+    }
+]
+```
+
 #### GET `/account/{id}/mailboxes`
 
 Retrieve all of the mailboxes attached to an account.
