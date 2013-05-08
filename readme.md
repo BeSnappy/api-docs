@@ -301,7 +301,7 @@ To attach a posted note to an existing ticket, just add the ticket ID or nonce t
 ```
 
 <a name="updating-ticket-tags"></a>
-#### POST `/ticket/{ticket}/tags`
+#### POST `/ticket/{id}/tags`
 
 Update the tags assigned to a ticket.
 
