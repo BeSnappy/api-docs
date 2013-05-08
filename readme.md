@@ -249,6 +249,21 @@ The POST request should contain a `tags` field which contains a JSON encoded lis
 
 Retrieve all of the documents attached to an account.
 
+```json
+[
+    {
+        "id": 60,
+        "account_id": 3,
+        "filename": "faq.png",
+        "type": "image\/png",
+        "size": 265420,
+        "storage_key": "71be44f646d46af5023ec9dd21b732b4",
+        "created_at": "2013-05-07 16:04:45",
+        "updated_at": "2013-05-07 16:04:45"
+    }
+]
+```
+
 #### GET `/account/{id}/document/{id}/download`
 
 Download a document.
