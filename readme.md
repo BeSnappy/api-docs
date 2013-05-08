@@ -12,6 +12,19 @@ The current Snappy API rate limit is 200 requests per minute.
 
 ## Endpoints
 
+- [Accounts](#accounts)
+- [Mailboxes](#mailboxes)
+- [Staff](#staff)
+- [Waiting Tickets](#tickets)
+- [Ticket Details](#ticket-details)
+- [Ticket Notes](#ticket-notes)
+- [Adding A Note](#adding-a-note)
+- [Updating Ticket Tags](#updating-ticket-tags)
+- [Documents](#documents)
+- [Downloading Documents](#downloading-documents)
+- [Downloading Attachments](#downloading-attachments)
+
+<a name="accounts"></a>
 #### GET `/accounts`
 
 Retrieve all of the accounts the authenticated account has access to.
@@ -31,6 +44,7 @@ Retrieve all of the accounts the authenticated account has access to.
 ]
 ```
 
+<a name="mailboxes"></a>
 #### GET `/account/{id}/mailboxes`
 
 Retrieve all of the mailboxes attached to an account.
@@ -55,6 +69,7 @@ Retrieve all of the mailboxes attached to an account.
 ]
 ```
 
+<a name="staff"></a>
 #### GET `/account/{id}/staff`
 
 Retrieve all of the staff attached to an account.
@@ -82,6 +97,7 @@ Retrieve all of the staff attached to an account.
 ]
 ```
 
+<a name="tickets"></a>
 #### GET `/mailbox/{id}/tickets`
 
 Retrieve all of the **waiting** tickets from a mailbox.
@@ -137,6 +153,7 @@ Retrieve all of the **waiting** tickets from a mailbox.
 ]
 ```
 
+<a name="ticket-details"></a>
 #### GET `/ticket/{id}`
 
 Retrieve the details of a ticket.
@@ -190,6 +207,7 @@ Retrieve the details of a ticket.
 }
 ```
 
+<a name="ticket-notes"></a>
 #### GET `/ticket/{id}/notes`
 
 Get all of the notes attached to a ticket.
@@ -235,6 +253,7 @@ Get all of the notes attached to a ticket.
 ]
 ```
 
+<a name="adding-a-note"></a>
 #### POST `/note`
 
 Send a new note to one of the account's mailboxes.
@@ -281,12 +300,14 @@ To attach a posted note to an existing ticket, just add the ticket ID or nonce t
 }
 ```
 
+<a name="updating-ticket-tags"></a>
 #### POST `/ticket/{ticket}/tags`
 
 Update the tags assigned to a ticket.
 
 The POST request should contain a `tags` field which contains a JSON encoded list of tags.
 
+<a name="documents"></a>
 #### GET `/account/{id}/documents`
 
 Retrieve all of the documents attached to an account.
@@ -306,6 +327,7 @@ Retrieve all of the documents attached to an account.
 ]
 ```
 
+<a name="downloading-documents"></a>
 #### GET `/account/{id}/document/{id}/download`
 
 Download a document.
@@ -316,6 +338,7 @@ Upload a document to the given account.
 
 The document should be attached to the POST as a file named `document`. You may optionally include a POST field named `tags`. When included, the `tags` field should be a JSON encoded list of tags.
 
+<a name="downloading-attachments"></a>
 #### GET `/ticket/{id}/attachment/{id}/download`
 
 Download an attachment.
