@@ -314,6 +314,8 @@ Download a document.
 
 Upload a document to the given account.
 
+The document should be attached to the POST as a file named `document`. You may optionally include a POST field named `tags`. When included, the `tags` field should be a JSON encoded list of tags.
+
 #### GET `/ticket/{id}/attachment/{id}/download`
 
 Download an attachment.
