@@ -243,6 +243,8 @@ Send a new note to one of the account's mailboxes.
 
 Update the tags assigned to a ticket.
 
+The POST request should contain a `tags` field which contains a JSON encoded list of tags.
+
 #### GET `/account/{id}/documents`
 
 Retrieve all of the documents attached to an account.
