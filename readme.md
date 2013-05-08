@@ -266,7 +266,7 @@ Send a new note to one of the account's mailboxes.
 }
 ```
 
-To attach a psoted note to an existing ticket, just add the ticket ID or nonce to the payload:
+To attach a posted note to an existing ticket, just add the ticket ID or nonce to the payload:
 
 ```json
 {
