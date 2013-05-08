@@ -252,6 +252,35 @@ Send a new note to one of the account's mailboxes.
 }
 ```
 
+**Posting a note "to" a customer:**
+
+```json
+{
+    "mailbox_id": 3,
+    "staff_id": 2,
+    "subject": "Message Subject",
+    "to": [
+        {"name": "John Smith", "address": "john.smith@gmail.com"}
+    ]
+    "message": "Message Content",
+}
+```
+
+To attach a psoted note to an existing ticket, just add the ticket ID or nonce to the payload:
+
+```json
+{
+    "id": 24,
+    "mailbox_id": 3,
+    "staff_id": 2,
+    "subject": "Message Subject",
+    "to": [
+        {"name": "John Smith", "address": "john.smith@gmail.com"}
+    ]
+    "message": "Message Content",
+}
+```
+
 #### POST `/ticket/{ticket}/tags`
 
 Update the tags assigned to a ticket.
