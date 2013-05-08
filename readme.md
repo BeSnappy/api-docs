@@ -239,6 +239,19 @@ Get all of the notes attached to a ticket.
 
 Send a new note to one of the account's mailboxes.
 
+**Posting a note "from" a customer:**
+
+```json
+{
+    "mailbox_id": 3,
+    "subject": "Message Subject",
+    "from": [
+        {"name": "John Smith", "address": "john.smith@gmail.com"}
+    ]
+    "message": "Message Content",
+}
+```
+
 #### POST `/ticket/{ticket}/tags`
 
 Update the tags assigned to a ticket.
