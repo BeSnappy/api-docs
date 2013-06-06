@@ -23,6 +23,8 @@ The current Snappy API rate limit is 200 requests per minute.
 - [Documents](#documents)
 - [Downloading Documents](#downloading-documents)
 - [Downloading Attachments](#downloading-attachments)
+- [Reading Team Wall](#reading-team-wall)
+- [Posting To Team Wall](#posting-to-team-wall)
 
 <a name="accounts"></a>
 #### GET `/accounts`
@@ -342,3 +344,23 @@ The document should be attached to the POST as a file named `document`. You may 
 #### GET `/ticket/{id}/attachment/{id}/download`
 
 Download an attachment.
+
+<a name="reading-team-wall"></a>
+#### GET `/account/{id}/wall`
+
+Read the latest 25 posts to the team wall. You pass a wall post ID in the query string to "paginate" results:
+
+`GET /account/{id}/wall?after=405
+
+<a name="posting-to-team-wall"></a>
+#### POST `/account/{id}/wall`
+
+```json
+{
+    "content": "Post Content",
+    "type": "post",
+    "ticket": null,
+    "note": null,
+    "tags": ["foo", "bar"]
+}
+```
