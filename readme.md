@@ -25,6 +25,11 @@ The current Snappy API rate limit is 200 requests per minute.
 - [Downloading Attachments](#downloading-attachments)
 - [Reading Team Wall](#reading-team-wall)
 - [Posting To Team Wall](#posting-to-team-wall)
+- [Deleting Wall Posts](#deleting-wall-posts)
+- [Commenting On Wall Posts](#commenting-on-wall-posts)
+- [Deleting Wall Comments](#deleting-wall-comments)
+- [Liking Wall Posts](#liking-wall-posts)
+- [Unliking Wall Posts](#unliking-wall-posts)
 
 <a name="accounts"></a>
 #### GET `/accounts`
@@ -341,14 +346,14 @@ Upload a document to the given account.
 The document should be attached to the POST as a file named `document`. You may optionally include a POST field named `tags`. When included, the `tags` field should be a JSON encoded list of tags.
 
 <a name="downloading-attachments"></a>
-#### GET `/ticket/{id}/attachment/{id}/download`
+#### GET `/ticket/{id}/attachment/{attachment_id}/download`
 
 Download an attachment.
 
 <a name="reading-team-wall"></a>
 #### GET `/account/{id}/wall`
 
-Read the latest 25 posts to the team wall. You pass a wall post ID in the query string to "paginate" results:
+Read the latest 25 posts from the team wall. You pass a wall post ID in the query string to "paginate" results:
 
 `GET /account/{id}/wall?after=405
 
@@ -364,3 +369,28 @@ Read the latest 25 posts to the team wall. You pass a wall post ID in the query 
     "tags": ["foo", "bar"]
 }
 ```
+
+<a name="deleting-wall-posts"></a>
+#### DELETE `/account/{id}/wall/{post_id}`
+
+Delete a wall post.
+
+<a name="commenting-on-wall-posts"></a>
+#### POST `/account/{id}/wall/{post_id}/comment`
+
+Comment on wall post. The comment content should be in a POST field named "comment".
+
+<a name="deleting-wall-comments"></a>
+#### DELETE `/account/{id}/wall/{post_id}/comment/{comment_id}`
+
+Delete a wall post comment.
+
+<a name="liking-wall-posts"></a>
+#### POST `/account/{id}/wall/{post_id}/like`
+
+Like a given wall post.
+
+<a name="unliking-wall-posts"></a>
+#### DELETE `/account/{id}/wall/{post_id}/like`
+
+Unlike a given wall post.
