@@ -292,11 +292,11 @@ Send a new note to one of the account's mailboxes.
 }
 ```
 
-To attach a posted note to an existing ticket, just add the ticket ID or nonce to the payload:
+To attach a posted note to an existing ticket, just add the ticket nonce to the payload:
 
 ```json
 {
-    "id": 24,
+    "id": "your-ticket-nonce",
     "mailbox_id": 3,
     "staff_id": 2,
     "subject": "Message Subject",
