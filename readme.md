@@ -18,7 +18,7 @@ The current Snappy API rate limit is 200 requests per minute.
 - [Waiting Tickets](#tickets)
 - [Ticket Details](#ticket-details)
 - [Ticket Notes](#ticket-notes)
-- [Adding A Note](#adding-a-note)
+- [Creating Tickets & Adding Notes](#adding-a-note)
 - [Updating Ticket Tags](#updating-ticket-tags)
 - [Documents](#documents)
 - [Downloading Documents](#downloading-documents)
@@ -263,7 +263,7 @@ Get all of the notes attached to a ticket.
 <a name="adding-a-note"></a>
 #### POST `/note`
 
-Send a new note to one of the account's mailboxes.
+Send a new note to one of the account's mailboxes. A ticket will automatically be created.
 
 **Posting a note "from" a customer:**
 
@@ -292,7 +292,7 @@ Send a new note to one of the account's mailboxes.
 }
 ```
 
-To attach a posted note to an existing ticket, just add the ticket nonce to the payload:
+To attach a note to an existing ticket, just add the ticket nonce to the payload in the `id` slot:
 
 ```json
 {
