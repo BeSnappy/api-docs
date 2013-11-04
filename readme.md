@@ -2,7 +2,9 @@
 
 ## Introduction
 
-All Snappy API end-points begin with `https://app.besnappy.com/api/v1/` and use the HTTPS protocol. All requests should also pass a username and password to authenticate via Basic Auth.
+All Snappy API end-points begin with `https://app.besnappy.com/api/v1/` and use the HTTPS protocol. All requests should also pass a username and password, or API key to authenticate via Basic Auth.
+
+You may retrieve your API key via the "Your Settings" menu in Snappy. Once in the settings menu, the security tab will provide access to your API key. When authenticating via API key, pass the key as the "username" and any string (such as "x) as the password.
 
 Response payloads are typically JSON; however, a few end-points return only a simple string identifier.
 
