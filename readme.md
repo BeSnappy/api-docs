@@ -15,8 +15,10 @@ The current Snappy API rate limit is 200 requests per minute.
 ## Endpoints
 
 - [Accounts](#accounts)
+- [Search](#search)
 - [Mailboxes](#mailboxes)
 - [Staff](#staff)
+- [Contacts](#contacts)
 - [Waiting Tickets](#tickets)
 - [Ticket Details](#ticket-details)
 - [Ticket Notes](#ticket-notes)
@@ -51,6 +53,27 @@ Retrieve all of the accounts the authenticated account has access to.
         "custom_domain": ""
     }
 ]
+```
+
+<a name="search"></a>
+#### GET `/account/{id}/search`
+
+Perform a fuzzy search on an account's tickets.
+
+Two items should be passed in the query string: `query` and `page`. The `query` parameter is your plain text search query. The `page` parameter allows you to indicate which page of results should be returned. Search results are returned with items for page.
+
+In the search response, the `meta` property will give you the `total` amount of search results, not just the total for the current page.
+
+```json
+{
+    "meta": {
+        "total": 15,
+        "page": 1
+    },
+    "data": [
+        // Tickets found by the search...    
+    ]
+}
 ```
 
 <a name="mailboxes"></a>
@@ -102,6 +125,27 @@ Retrieve all of the staff attached to an account.
         "notify_new": 1,
         "news_read_at": "2013-05-07 20:26:35",
         "username": "ian"
+    }
+]
+```
+
+<a name="contacts"></a>
+#### GET `/account/{id}/contacts/{id-or-email}`
+
+Retrieve a contact associated with an account.
+
+```json
+[
+    {
+        "id": 1,
+        "account_id": 1,
+        "first_name": "Eugene",
+        "last_name": "Haag",
+        "value": "colleen.jenkins@example.com",
+        "provider": "email",
+        "created_at": "2013-12-02 14:55:27",
+        "updated_at": "2013-12-02 14:55:27",
+        "address": "colleen.jenkins@example.com"
     }
 ]
 ```
