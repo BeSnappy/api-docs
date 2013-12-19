@@ -20,6 +20,7 @@ The current Snappy API rate limit is 200 requests per minute.
 - [Staff](#staff)
 - [Contacts](#contacts)
 - [Waiting Tickets](#tickets)
+- [Your Tickets](#your-tickets)
 - [Ticket Details](#ticket-details)
 - [Ticket Notes](#ticket-notes)
 - [Creating Tickets & Adding Notes](#adding-a-note)
@@ -71,7 +72,7 @@ In the search response, the `meta` property will give you the `total` amount of 
         "page": 1
     },
     "data": [
-        // Tickets found by the search...    
+        // Tickets found by the search...
     ]
 }
 ```
@@ -154,6 +155,62 @@ Retrieve a contact associated with an account.
 #### GET `/mailbox/{id}/tickets`
 
 Retrieve all of the **waiting** tickets from a mailbox.
+
+```json
+[
+    {
+        "id": 1,
+        "account_id": 3,
+        "mailbox_id": 3,
+        "created_via": "email",
+        "last_reply_by": "customer",
+        "last_reply_at": 1368011747,
+        "opened_by_staff_id": null,
+        "opened_by_contact_id": 4,
+        "opened_at": 1367934047,
+        "status": "waiting",
+        "first_staff_reply_at": "2013-05-07 13:41:06",
+        "default_subject": "Re: Welcome to Snappy",
+        "summary": "Message summary",
+        "created_at": 1367934047,
+        "updated_at": "2013-05-08 11:15:47",
+        "unread": true,
+        "tags": [
+            "@ian"
+        ],
+        "contacts": [
+            {
+                "id": 4,
+                "account_id": 3,
+                "first_name": "John",
+                "last_name": "Smith",
+                "value": "john.smith@gmail.com",
+                "provider": "email",
+                "created_at": "2013-05-07 13:40:47",
+                "updated_at": "2013-05-07 13:40:47",
+                "type": "from"
+            }
+        ],
+        "mailbox": {
+        },
+        "opener": {
+            "id": 4,
+            "account_id": 3,
+            "first_name": "John",
+            "last_name": "Smith",
+            "value": "john.smith@gmail.com",
+            "provider": "email",
+            "created_at": "2013-05-07 13:40:47",
+            "updated_at": "2013-05-07 13:40:47"
+        }
+    }
+]
+```
+
+<a name="your-tickets"></a>
+#### GET `/mailbox/{id}/yours`
+
+Retrieve all of the **waiting** that are assigned to you.
 
 ```json
 [
