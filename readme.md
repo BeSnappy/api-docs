@@ -210,7 +210,7 @@ Retrieve all of the **waiting** tickets from a mailbox.
 <a name="your-tickets"></a>
 #### GET `/mailbox/{id}/yours`
 
-Retrieve all of the **waiting** that are assigned to you.
+Retrieve all of the **waiting** tickets that are assigned to you.
 
 ```json
 [
