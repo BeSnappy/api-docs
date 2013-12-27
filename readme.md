@@ -474,10 +474,6 @@ Update the tags assigned to a ticket.
 
 The POST request should contain a `tags` field which contains a JSON encoded list of tags.
 
-```json
-{"tags":["test","#sales","@john"]}
-```
-
 <a name="documents"></a>
 #### GET `/account/{id}/documents`
 
