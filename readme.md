@@ -474,6 +474,10 @@ Update the tags assigned to a ticket.
 
 The POST request should contain a `tags` field which contains a JSON encoded list of tags.
 
+```json
+{"tags":["test","#sales","@john"]}
+```
+
 <a name="documents"></a>
 #### GET `/account/{id}/documents`
 
@@ -538,7 +542,7 @@ Delete a wall post.
 <a name="commenting-on-wall-posts"></a>
 #### POST `/account/{id}/wall/{post_id}/comment`
 
-Comment on wall post. The comment content should be in a POST field named "comment".
+Comment on wall post. The comment content should be in a POST field named "content".
 
 <a name="deleting-wall-comments"></a>
 #### DELETE `/account/{id}/wall/{post_id}/comment/{comment_id}`
