@@ -462,7 +462,7 @@ To attach a note to an existing ticket, just add the ticket nonce to the payload
     "subject": "Message Subject",
     "to": [
         {"name": "John Smith", "address": "john.smith@gmail.com"}
-    ]
+    ],
     "message": "Message Content",
 }
 ```
