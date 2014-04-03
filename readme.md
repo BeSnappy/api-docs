@@ -36,6 +36,9 @@ The current Snappy API rate limit is 200 requests per minute.
 - [Deleting Wall Comments](#deleting-wall-comments)
 - [Liking Wall Posts](#liking-wall-posts)
 - [Unliking Wall Posts](#unliking-wall-posts)
+- [Creating & Editing FAQs](#creating-and-editing-faqs)
+- [Creating & Editing FAQ Topics](#creating-and-editing-topics)
+- [Creating & Editing FAQ Questions](#creating-and-editing-questions)
 
 <a name="accounts"></a>
 #### GET `/accounts`
@@ -554,3 +557,118 @@ Like a given wall post.
 #### DELETE `/account/{id}/wall/{post_id}/like`
 
 Unlike a given wall post.
+
+<a name="creating-and-editing-faqs"></a>
+### Creating And Editing FAQs
+
+#### GET `/account/{id}/faqs`
+
+Get all of the FAQs for an account.
+
+#### POST `/account/{id}/faqs`
+
+Create a new FAQ.
+
+Request:
+
+```json
+{
+    "title": "My FAQ",
+    "url": "faq"
+}
+```
+
+#### PUT `/account/{id}/faqs/{faq_id}`
+
+Update an FAQ.
+
+Request:
+
+```json
+{
+    "title": "My FAQ",
+    "url": "faq"
+}
+```
+
+#### DELETE `/account/{id}/faqs/{faq_id}`
+
+Delete an FAQ.
+
+<a name="creating-and-editing-topics"></a>
+### Creating And Editing FAQ Topics
+
+#### GET `/account/{id}/faqs/{faq_id}/topics`
+
+Get all of the topics for an FAQ.
+
+#### POST `/account/{id}/faqs/{faq_id}/topics`
+
+Create a new FAQ topic.
+
+Request:
+
+```json
+{
+    "topic": "My topic name."
+}
+```
+
+#### PUT `/account/{id}/faqs/{faq_id}/topics/{topic_id}`
+
+Update an FAQ topic.
+
+Request:
+
+```json
+{
+    "topic": "My topic name."
+}
+```
+
+#### DELETE `/account/{id}/faqs/{faq_id}/topics/{topic_id}`
+
+Delete an FAQ topic.
+
+<a name="creating-and-editing-questions"></a>
+### Creating And Editing FAQ Questions
+
+#### GET `/account/{id}/faqs/{faq_id}/topics/{topic_id}/questions`
+
+Get all of the questions for a given topic.
+
+#### POST `/account/{id}/faqs/{faq_id}/topics/{topic_id}/questions`
+
+Create a new question for a topic.
+
+```json
+{
+    "question": "My question.",
+    "answer": "My answer."
+}
+```
+
+#### PUT `/account/{id}/faqs/{faq_id}/topics/{topic_id}/questions/{question_id}`
+
+Update a question.
+
+```json
+{
+    "question": "My question.",
+    "answer": "My answer."
+}
+```
+
+#### PUT `/account/{id}/faqs/{faq_id}/topics/{topic_id}/questions/{question_id}/topics`
+
+Update the topics a question is attached to.
+
+```json
+{
+    "topics": [1, 2, 3]
+}
+```
+
+#### DELETE `/account/{id}/faqs/{faq_id}/topics/{topic_id}/questions/{question_id}`
+
+Delete a question.
