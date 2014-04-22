@@ -451,7 +451,7 @@ Send a new note to one of the account's mailboxes. A ticket will automatically b
     "to": [
         {"name": "John Smith", "address": "john.smith@gmail.com"}
     ],
-    "message": "Message Content",
+    "message": "Message Content"
 }
 ```
 
@@ -466,7 +466,23 @@ To attach a note to an existing ticket, just add the ticket nonce to the payload
     "to": [
         {"name": "John Smith", "address": "john.smith@gmail.com"}
     ],
+    "message": "Message Content"
+}
+```
+
+To create a "private" note, set the scope on the JSON payload:
+
+```json
+{
+    "id": "your-ticket-nonce",
+    "mailbox_id": 3,
+    "staff_id": 2,
+    "subject": "Message Subject",
+    "to": [
+        {"name": "John Smith", "address": "john.smith@gmail.com"}
+    ],
     "message": "Message Content",
+    "scope": "private"
 }
 ```
 
