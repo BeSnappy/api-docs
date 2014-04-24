@@ -437,7 +437,7 @@ Send a new note to one of the account's mailboxes. A ticket will automatically b
     "from": [
         {"name": "John Smith", "address": "john.smith@gmail.com"}
     ],
-    "message": "Message Content",
+    "message": "Message Content"
 }
 ```
 
