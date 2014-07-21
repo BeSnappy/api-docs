@@ -36,6 +36,7 @@ The current Snappy API rate limit is 200 requests per minute.
 - [Deleting Wall Comments](#deleting-wall-comments)
 - [Liking Wall Posts](#liking-wall-posts)
 - [Unliking Wall Posts](#unliking-wall-posts)
+- [Searching FAQs](#searching-faqs)
 - [Creating & Editing FAQs](#creating-and-editing-faqs)
 - [Creating & Editing FAQ Topics](#creating-and-editing-topics)
 - [Creating & Editing FAQ Questions](#creating-and-editing-questions)
@@ -573,6 +574,40 @@ Like a given wall post.
 #### DELETE `/account/{id}/wall/{post_id}/like`
 
 Unlike a given wall post.
+
+<a name="searching-faqs"></a>
+### Searching FAQs
+
+#### GET `/account/{id}/faqs/search?query=search&page=1`
+
+```json
+{  
+   "meta":{  
+      "total":2,
+      "page":1
+   },
+   "data":[  
+      {  
+         "id":2,
+         "account_id":1,
+         "question":"Pricing and use of multiple accounts",
+         "answer":"Snappy allows you to have multiple distinct accounts...",
+         "created_at":"2014-07-21 20:22:12",
+         "updated_at":"2014-07-21 20:22:12",
+         "active":1
+      },
+      {  
+         "id":1,
+         "account_id":1,
+         "question":"How do I use the custom contact lookup application?",
+         "answer":"The custom contact application allows you to load...",
+         "created_at":"2014-07-21 20:22:12",
+         "updated_at":"2014-07-21 20:22:12",
+         "active":1
+      }
+   ]
+}
+```
 
 <a name="creating-and-editing-faqs"></a>
 ### Creating And Editing FAQs
