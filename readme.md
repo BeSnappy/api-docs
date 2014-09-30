@@ -26,6 +26,8 @@ The current Snappy API rate limit is 200 requests per minute.
 - [Ticket Notes](#ticket-notes)
 - [Creating Tickets & Adding Notes](#adding-a-note)
 - [Updating Ticket Tags](#updating-ticket-tags)
+- [Updating Ticket Status](#updating-ticket-status)
+- [Deleting A Ticket](#deleting-a-ticket)
 - [Documents](#documents)
 - [Downloading Documents](#downloading-documents)
 - [Downloading Attachments](#downloading-attachments)
@@ -157,9 +159,64 @@ Retrieve a contact associated with an account.
 ```
 
 <a name="tickets"></a>
-#### GET `/mailbox/{id}/tickets`
+#### GET `/mailbox/{id}/waiting`
 
 Retrieve all of the **waiting** tickets from a mailbox.
+
+```json
+[
+    {
+        "id": 1,
+        "account_id": 3,
+        "mailbox_id": 3,
+        "created_via": "email",
+        "last_reply_by": "customer",
+        "last_reply_at": 1368011747,
+        "opened_by_staff_id": null,
+        "opened_by_contact_id": 4,
+        "opened_at": 1367934047,
+        "status": "waiting",
+        "first_staff_reply_at": "2013-05-07 13:41:06",
+        "default_subject": "Re: Welcome to Snappy",
+        "summary": "Message summary",
+        "created_at": 1367934047,
+        "updated_at": "2013-05-08 11:15:47",
+        "unread": true,
+        "tags": [
+            "@ian"
+        ],
+        "contacts": [
+            {
+                "id": 4,
+                "account_id": 3,
+                "first_name": "John",
+                "last_name": "Smith",
+                "value": "john.smith@gmail.com",
+                "provider": "email",
+                "created_at": "2013-05-07 13:40:47",
+                "updated_at": "2013-05-07 13:40:47",
+                "type": "from"
+            }
+        ],
+        "mailbox": {
+        },
+        "opener": {
+            "id": 4,
+            "account_id": 3,
+            "first_name": "John",
+            "last_name": "Smith",
+            "value": "john.smith@gmail.com",
+            "provider": "email",
+            "created_at": "2013-05-07 13:40:47",
+            "updated_at": "2013-05-07 13:40:47"
+        }
+    }
+]
+```
+
+#### GET `/account/{id}/waiting`
+
+Retrieve all of the **waiting** tickets from an account.
 
 ```json
 [
@@ -268,10 +325,120 @@ Retrieve all of the **new and unassigned** (inbox) tickets from a mailbox.
 ]
 ```
 
+#### GET `/account/{id}/inbox`
+
+Retrieve all of the **new and unassigned** (inbox) tickets from an account.
+
+```json
+[
+    {
+        "id": 1,
+        "account_id": 3,
+        "mailbox_id": 3,
+        "created_via": "email",
+        "last_reply_by": "customer",
+        "last_reply_at": 1368011747,
+        "opened_by_staff_id": null,
+        "opened_by_contact_id": 4,
+        "opened_at": 1367934047,
+        "status": "waiting",
+        "first_staff_reply_at": "2013-05-07 13:41:06",
+        "default_subject": "Re: Welcome to Snappy",
+        "summary": "Message summary",
+        "created_at": 1367934047,
+        "updated_at": "2013-05-08 11:15:47",
+        "unread": true,
+        "tags": [
+            "@ian"
+        ],
+        "contacts": [
+            {
+                "id": 4,
+                "account_id": 3,
+                "first_name": "John",
+                "last_name": "Smith",
+                "value": "john.smith@gmail.com",
+                "provider": "email",
+                "created_at": "2013-05-07 13:40:47",
+                "updated_at": "2013-05-07 13:40:47",
+                "type": "from"
+            }
+        ],
+        "mailbox": {
+        },
+        "opener": {
+            "id": 4,
+            "account_id": 3,
+            "first_name": "John",
+            "last_name": "Smith",
+            "value": "john.smith@gmail.com",
+            "provider": "email",
+            "created_at": "2013-05-07 13:40:47",
+            "updated_at": "2013-05-07 13:40:47"
+        }
+    }
+]
+```
+
 <a name="your-tickets"></a>
 #### GET `/mailbox/{id}/yours`
 
 Retrieve all of the **waiting** tickets that are assigned to you.
+
+```json
+[
+    {
+        "id": 1,
+        "account_id": 3,
+        "mailbox_id": 3,
+        "created_via": "email",
+        "last_reply_by": "customer",
+        "last_reply_at": 1368011747,
+        "opened_by_staff_id": null,
+        "opened_by_contact_id": 4,
+        "opened_at": 1367934047,
+        "status": "waiting",
+        "first_staff_reply_at": "2013-05-07 13:41:06",
+        "default_subject": "Re: Welcome to Snappy",
+        "summary": "Message summary",
+        "created_at": 1367934047,
+        "updated_at": "2013-05-08 11:15:47",
+        "unread": true,
+        "tags": [
+            "@ian"
+        ],
+        "contacts": [
+            {
+                "id": 4,
+                "account_id": 3,
+                "first_name": "John",
+                "last_name": "Smith",
+                "value": "john.smith@gmail.com",
+                "provider": "email",
+                "created_at": "2013-05-07 13:40:47",
+                "updated_at": "2013-05-07 13:40:47",
+                "type": "from"
+            }
+        ],
+        "mailbox": {
+        },
+        "opener": {
+            "id": 4,
+            "account_id": 3,
+            "first_name": "John",
+            "last_name": "Smith",
+            "value": "john.smith@gmail.com",
+            "provider": "email",
+            "created_at": "2013-05-07 13:40:47",
+            "updated_at": "2013-05-07 13:40:47"
+        }
+    }
+]
+```
+
+#### GET `/account/{id}/yours`
+
+Retrieve all of the **waiting** tickets that are assigned to you across an entire account (all mailboxes)
 
 ```json
 [
@@ -500,6 +667,24 @@ The POST request should contain a `tags` field which contains a JSON encoded lis
 }
 ```
 
+<a name="updating-ticket-status"></a>
+#### PUT `/ticket/{id}/status`
+
+Update the status of a ticket.
+
+The PUT request should contain a `status` field.
+
+```json
+{
+    "status": "replied"
+}
+```
+
+<a name="deleting-a-ticket"></a>
+#### DELETE `/ticket/{id}`
+
+Delete a ticket.
+
 <a name="documents"></a>
 #### GET `/account/{id}/documents`
 
@@ -587,13 +772,13 @@ Unlike a given wall post.
 #### GET `/account/{id}/faqs/search?query=search&page=1`
 
 ```json
-{  
-   "meta":{  
+{
+   "meta":{
       "total":2,
       "page":1
    },
-   "data":[  
-      {  
+   "data":[
+      {
          "id":2,
          "account_id":1,
          "question":"Pricing and use of multiple accounts",
@@ -602,7 +787,7 @@ Unlike a given wall post.
          "updated_at":"2014-07-21 20:22:12",
          "active":1
       },
-      {  
+      {
          "id":1,
          "account_id":1,
          "question":"How do I use the custom contact lookup application?",
